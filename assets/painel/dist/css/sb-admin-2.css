@@ -453,3 +453,6 @@ table.dataTable thead .sorting:after {
     border-left-width: 0;
   }
 }
+.logo-painel {
+  max-width: 200px;
+}

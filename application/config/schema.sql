@@ -1,10 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `db_kairos` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `db_kairos`;
 -- MySQL dump 10.13  Distrib 5.7.13, for linux-glibc2.5 (x86_64)
 --
 -- Host: localhost    Database: db_kairos
 -- ------------------------------------------------------
--- Server version	5.5.5-10.1.16-MariaDB
+-- Server version	5.5.5-10.1.17-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -57,6 +55,8 @@ CREATE TABLE `contas_receber` (
   `nome` varchar(255) DEFAULT NULL,
   `valor` double DEFAULT NULL,
   `data` date DEFAULT NULL,
+  `obs` text,
+  `dizimo` varchar(3) DEFAULT NULL,
   PRIMARY KEY (`id_conta_receber`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -104,4 +104,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-15 18:06:52
+-- Dump completed on 2016-09-21 19:07:47
