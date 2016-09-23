@@ -6,7 +6,7 @@
 </div>
 <div class="row">
     <div class="col-lg-12 text-right">
-        <?php echo anchor('news/local/123', '<i class="fa fa-plus" aria-hidden="true"></i> Adicionar', array('class' => 'btn btn-primary'));?>
+        <?php echo anchor('add-nova-conta', '<i class="fa fa-plus" aria-hidden="true"></i> Adicionar', array('class' => 'btn btn-primary'));?>
     </div>
 </div>
 <br>
