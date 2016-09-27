@@ -1,23 +1,20 @@
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Dashboard</h1>
+        <h1 class="page-header">Sistema Kairos</h1>
     </div>
-    <!-- /.col-lg-12 -->
 </div>
 <div class="row">
     <div class="col-lg-12 text-right">
-        <?php echo anchor('add-nova-conta', '<i class="fa fa-plus" aria-hidden="true"></i> Adicionar', array('class' => 'btn btn-primary'));?>
+        <?php echo anchor('adicionar_conta_receber', '<i class="fa fa-plus" aria-hidden="true"></i> Adicionar', array('class' => 'btn btn-primary')); ?>
     </div>
 </div>
 <br>
-<!-- /.row -->
 <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
                 Contas a receber
             </div>
-            <!-- /.panel-heading -->
             <div class="panel-body">
                 <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                     <thead>
@@ -41,11 +38,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <!-- /.table-responsive -->
-                <!-- /.panel-body -->
             </div>
-            <!-- /.panel -->
         </div>
-        <!-- /.col-lg-12 -->
     </div>
 </div>

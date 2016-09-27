@@ -8,7 +8,11 @@
         <div class="panel panel-default">
             <div class="panel-heading">Conta a Receber</div>
             <div class="panel-body">
-                <form action="add-nova-conta" method="post">
+                <form action="adicionar_conta_receber" method="post">
+                    <?php
+                    $date = date('Y-m-d');
+                    ?>
+                    <input type="date" class="hidden" name="data" placeholder="Nome" value="<?= $date;?>">
                     <div class="row">
                         <div class="form-group col-lg-12">
                             <input type="text" class="form-control" name="nome" placeholder="Nome">
