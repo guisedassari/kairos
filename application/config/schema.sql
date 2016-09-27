@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 27/09/2016 às 17:44
+-- Tempo de geração: 27/09/2016 às 17:57
 -- Versão do servidor: 10.1.17-MariaDB
 -- Versão do PHP: 5.6.26
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `contas_pagar` (
   `id_conta_pagar` int(11) NOT NULL,
   `nome` varchar(255) DEFAULT NULL,
-  `valor` double DEFAULT NULL,
+  `valor` decimal(10,2) DEFAULT NULL,
   `parcela` int(11) DEFAULT NULL,
   `date` date DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
@@ -57,7 +57,8 @@ CREATE TABLE `contas_receber` (
 
 INSERT INTO `contas_receber` (`id_conta_receber`, `nome`, `valor`, `data`, `obs`, `dizimo`) VALUES
 (19, 'Teste', '1050.00', '2016-09-27', 'asdfasdfasdfassfsf', 'Sim'),
-(21, 'asdfasdfasd', '120.00', '2016-09-27', 'asdfasfasfas', 'Sim');
+(21, 'asdfasdfasd', '120.00', '2016-09-27', 'asdfasfasfas', 'Sim'),
+(22, 'Teste', '123.25', '2016-09-27', 'aasdfasdfasdfasdf', 'Não');
 
 -- --------------------------------------------------------
 
@@ -107,7 +108,7 @@ ALTER TABLE `contas_pagar`
 -- AUTO_INCREMENT de tabela `contas_receber`
 --
 ALTER TABLE `contas_receber`
-  MODIFY `id_conta_receber` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_conta_receber` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT de tabela `usuarios`
 --
