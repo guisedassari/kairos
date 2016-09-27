@@ -52,5 +52,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'welcome';
 $route['financeiro'] = 'financeiro/contas_receber_controller';
 $route['adicionar_conta_receber'] = '/financeiro/contas_receber_controller/add';
+$route['deletar_conta_receber/(:any)'] = '/financeiro/contas_receber_controller/delete/$1';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

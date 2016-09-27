@@ -1,88 +1,118 @@
+-- phpMyAdmin SQL Dump
+-- version 4.6.4
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost
+-- Tempo de geração: 27/09/2016 às 17:44
+-- Versão do servidor: 10.1.17-MariaDB
+-- Versão do PHP: 5.6.26
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
 
-DROP TABLE IF EXISTS `contas_pagar`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Banco de dados: `db_kairos`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `contas_pagar`
+--
+
 CREATE TABLE `contas_pagar` (
-  `id_conta_pagar` int(11) NOT NULL AUTO_INCREMENT,
+  `id_conta_pagar` int(11) NOT NULL,
   `nome` varchar(255) DEFAULT NULL,
   `valor` double DEFAULT NULL,
   `parcela` int(11) DEFAULT NULL,
   `date` date DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
-  `obs` text,
-  PRIMARY KEY (`id_conta_pagar`)
+  `obs` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+
+-- --------------------------------------------------------
 
 --
--- Dumping data for table `contas_pagar`
+-- Estrutura para tabela `contas_receber`
 --
 
-LOCK TABLES `contas_pagar` WRITE;
-/*!40000 ALTER TABLE `contas_pagar` DISABLE KEYS */;
-/*!40000 ALTER TABLE `contas_pagar` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `contas_receber`
---
-
-DROP TABLE IF EXISTS `contas_receber`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `contas_receber` (
-  `id_conta_receber` int(11) NOT NULL AUTO_INCREMENT,
+  `id_conta_receber` int(11) NOT NULL,
   `nome` varchar(255) DEFAULT NULL,
-  `valor` double DEFAULT NULL,
+  `valor` decimal(10,2) DEFAULT NULL,
   `data` date DEFAULT NULL,
   `obs` text,
-  `dizimo` varchar(3) DEFAULT NULL,
-  PRIMARY KEY (`id_conta_receber`)
+  `dizimo` varchar(3) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `contas_receber`
+-- Fazendo dump de dados para tabela `contas_receber`
 --
 
-LOCK TABLES `contas_receber` WRITE;
-/*!40000 ALTER TABLE `contas_receber` DISABLE KEYS */;
-/*!40000 ALTER TABLE `contas_receber` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `contas_receber` (`id_conta_receber`, `nome`, `valor`, `data`, `obs`, `dizimo`) VALUES
+(19, 'Teste', '1050.00', '2016-09-27', 'asdfasdfasdfassfsf', 'Sim'),
+(21, 'asdfasdfasd', '120.00', '2016-09-27', 'asdfasfasfas', 'Sim');
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `usuarios`
+-- Estrutura para tabela `usuarios`
 --
 
-DROP TABLE IF EXISTS `usuarios`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `usuarios` (
-  `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
+  `id_usuario` int(11) NOT NULL,
   `email` varchar(255) DEFAULT NULL,
   `senha` varchar(255) DEFAULT NULL,
-  `nome` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id_usuario`)
+  `nome` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `usuarios`
+-- Índices de tabelas apagadas
 --
 
-LOCK TABLES `usuarios` WRITE;
-/*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-/*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+--
+-- Índices de tabela `contas_pagar`
+--
+ALTER TABLE `contas_pagar`
+  ADD PRIMARY KEY (`id_conta_pagar`);
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+--
+-- Índices de tabela `contas_receber`
+--
+ALTER TABLE `contas_receber`
+  ADD PRIMARY KEY (`id_conta_receber`);
+
+--
+-- Índices de tabela `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id_usuario`);
+
+--
+-- AUTO_INCREMENT de tabelas apagadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `contas_pagar`
+--
+ALTER TABLE `contas_pagar`
+  MODIFY `id_conta_pagar` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de tabela `contas_receber`
+--
+ALTER TABLE `contas_receber`
+  MODIFY `id_conta_receber` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+--
+-- AUTO_INCREMENT de tabela `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2016-09-23 16:41:06

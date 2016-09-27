@@ -20,7 +20,7 @@
                     </div>
                     <div class="row">
                         <div class="form-group col-lg-12">
-                            <input type="number" class="form-control" name="valor" placeholder="Valor">
+                            <input type="text" class="form-control" name="valor" placeholder="Valor">
                         </div>
                     </div>
                     <div class="row">

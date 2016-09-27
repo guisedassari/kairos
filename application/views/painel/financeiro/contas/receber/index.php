@@ -28,13 +28,27 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="odd gradeX">
-                            <td>Data System</td>
-                            <td>R$ 120,00</td>
-                            <td>09/09/2016</td>
-                            <td>Teste</td>
-                            <td>Sim</td>
-                            <td>Editar</td>
+                        <?php
+                        $valorTotal = 0;
+                        foreach ($dados as $value) :
+                            $valorTotal += (float) $value['valor'];
+                            ?>
+                            <tr class="odd gradeX">
+                                <td><?= $value['nome']; ?></td>
+                                <td class="valor text-center">R$ <?= $value['valor']; ?></td>
+                                <td><?= $value['data']; ?></td>
+                                <td><?= $value['obs']; ?></td>
+                                <td><?= $value['dizimo']; ?></td>
+                                <td>
+                                    <i class="fa fa-pencil-square" aria-hidden="true"></i>
+                                    &nbsp;&nbsp;
+                                    <?= anchor("deletar_conta_receber/{$value['id_conta_receber']}", '<i class="fa fa-trash" aria-hidden="true"></i>', ['class' => 'text-danger']);?>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                        <tr class="valor-total">
+                            <td colspan="3">Valor Total</td>
+                            <td colspan="3" class="text-center">R$ <?= $valorTotal; ?></td>
                         </tr>
                     </tbody>
                 </table>

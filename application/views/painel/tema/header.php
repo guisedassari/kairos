@@ -13,7 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!-- MetisMenu CSS -->
         <?php echo link_tag('assets/painel/vendor/metisMenu/metisMenu.min.css'); ?>
         <!-- Custom CSS -->
-        <?php echo link_tag('assets/painel/dist/css/sb-admin-2.css'); ?>
+        <?php echo link_tag('assets/painel/dist/css/sb-admin-2.min.css'); ?>
         <!-- Morris Charts CSS -->
         <?php echo link_tag('assets/painel/vendor/morrisjs/morris.css'); ?>
         <!-- Custom Fonts -->
