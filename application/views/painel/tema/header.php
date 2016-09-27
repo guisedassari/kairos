@@ -75,7 +75,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <?php echo anchor('#', ' Dashboard', array('class' => 'fa fa-dashboard')); ?>
                             </li>
                             <li>
-                                <?php echo anchor('financeiro', ' Financeiro', array('class' => 'fa fa-money')); ?>
+                                <a href="#"><i class="fa fa-usd fa-fw"></i> Financeiro<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <?php echo anchor('contas_receber', ' Contas a Receber', array('class' => '')); ?>
+                                    </li>
+                                    <li>
+                                        <?php echo anchor('#', ' Contas a Pagar', array('class' => '')); ?>
+                                    </li>
+                                </ul>
                             </li>
                             <li>
                                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
