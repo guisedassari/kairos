@@ -55,5 +55,7 @@ $route['contas_pagar'] = 'financeiro/contas_pagar_controller';
 $route['adicionar_conta_receber'] = '/financeiro/contas_receber_controller/add';
 $route['adicionar_conta_pagar'] = '/financeiro/contas_pagar_controller/add';
 $route['deletar_conta_receber/(:any)'] = '/financeiro/contas_receber_controller/delete/$1';
+$route['deletar_conta_pagar/(:any)'] = '/financeiro/contas_pagar_controller/delete/$1';
+$route['contas'] = '/financeiro/contas_controller';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

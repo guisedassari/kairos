@@ -465,6 +465,10 @@ table.dataTable thead .sorting:after {
   background-color: #FF6100!important;
 }
 .valor {
+  color: #E5615C;
+  font-weight: 900!important;
+}
+.valor2 {
   color: #00BCC9;
   font-weight: 900!important;
 }

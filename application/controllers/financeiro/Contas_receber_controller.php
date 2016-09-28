@@ -24,7 +24,7 @@ class Contas_receber_controller extends CI_Controller {
         if ($dados != null) {
             $this->receber_model->save($dados);
             $this->session->set_flashdata("success", "Conta cadastrada com sucesso");
-            redirect('contas_receber');
+            redirect('contas');
         }
         $this->load->templete('painel/financeiro/contas/receber/add');
     }
@@ -36,7 +36,7 @@ class Contas_receber_controller extends CI_Controller {
     public function delete($id) {
         $this->receber_model->drop($id);
         $this->session->set_flashdata("success", "Conta deletado com sucesso");
-        redirect('contas_receber');
+        redirect('contas');
     }
 
 }

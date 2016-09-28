@@ -16,7 +16,7 @@
                 Contas a receber
             </div>
             <div class="panel-body">
-                <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                <table width="100%" class="table table-striped table-bordered table-hover" id="">
                     <thead>
                         <tr>
                             <th>Nome</th>
@@ -24,7 +24,7 @@
                             <th>Data</th>
                             <th>OBS</th>
                             <th>Dizimo</th>
-                            <th>Ações</th>
+                            <th class="text-center">Ações</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -39,7 +39,7 @@
                                 <td><?= $value['data']; ?></td>
                                 <td><?= $value['obs']; ?></td>
                                 <td><?= $value['dizimo']; ?></td>
-                                <td>
+                                <td class="text-center">
                                     <i class="fa fa-pencil-square" aria-hidden="true"></i>
                                     &nbsp;&nbsp;
                                     <?= anchor("deletar_conta_receber/{$value['id_conta_receber']}", '<i class="fa fa-trash" aria-hidden="true"></i>', ['class' => 'text-danger']);?>

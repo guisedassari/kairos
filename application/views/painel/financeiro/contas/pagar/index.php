@@ -25,7 +25,7 @@
                             <th>Data</th>
                             <th>Status</th>
                             <th>OBS</th>
-                            <th>Ações</th>
+                            <th class="text-center">Ações</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -41,10 +41,10 @@
                                 <td><?= $value['data']; ?></td>
                                 <td><?= $value['status']; ?></td>
                                 <td><?= $value['obs']; ?></td>
-                                <td>
+                                <td class="text-center">
                                     <i class="fa fa-pencil-square" aria-hidden="true"></i>
                                     &nbsp;&nbsp;
-                                    <?= anchor("deletar_conta_pagar/{$value['id_conta_pagar']}", '<i class="fa fa-trash" aria-hidden="true"></i>', ['class' => 'text-danger']);?>
+                                    <?= anchor("deletar_conta_pagar/{$value['id_conta_pagar']}", '<i class="fa fa-trash" aria-hidden="true"></i>', ['class' => 'text-danger']); ?>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

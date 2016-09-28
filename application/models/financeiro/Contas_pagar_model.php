@@ -20,7 +20,7 @@ class Contas_pagar_model extends CI_Model {
     }
     
     public function drop($id = null) {
-        return $this->db->delete('contas_receber', array('id_conta_receber' => $id));
+        return $this->db->delete('contas_pagar', array('id_conta_pagar' => $id));
     }
 
     public function teste() {
