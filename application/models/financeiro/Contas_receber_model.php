@@ -9,7 +9,7 @@ class Contas_receber_model extends CI_Model {
     }
     
     public function select() {
-        $this->db->order_by('id_conta_receber', 'DESC');
+        $this->db->order_by('data', 'ASC');
         return $this->db->get('contas_receber')->result_array();
     }
     

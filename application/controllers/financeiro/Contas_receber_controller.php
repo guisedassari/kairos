@@ -20,7 +20,7 @@ class Contas_receber_controller extends CI_Controller {
 
     public function add() {
         $dados = $this->input->post();
-
+        //debbug($dados);
         if ($dados != null) {
             $this->receber_model->save($dados);
             $this->session->set_flashdata("success", "Conta cadastrada com sucesso");

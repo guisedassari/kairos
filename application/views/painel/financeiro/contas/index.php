@@ -43,7 +43,7 @@
                             <tr class="odd gradeX">
                                 <td><?= $value['nome']; ?></td>
                                 <td class="valor2 text-justify">R$ <?= $value['valor']; ?></td>
-                                <td><?= $value['data']; ?></td>
+                                <td><?= inverteData($value['data']); ?></td>
                                 <td><?= $value['obs']; ?></td>
                                 <td class="text-center"><?= $value['dizimo']; ?></td>
                                 <td class="text-center">
@@ -100,7 +100,7 @@
                                 <td><?= $value['nome']; ?></td>
                                 <td class="valor text-justify">R$ <?= $value['valor']; ?></td>
                                 <td class="text-center"><?= $value['parcela']; ?></td>
-                                <td><?= $value['data']; ?></td>
+                                <td><?= inverteData($value['data']); ?></td>
                                 <td><?= $value['status']; ?></td>
                                 <td><?= $value['obs']; ?></td>
                                 <td class="text-center">

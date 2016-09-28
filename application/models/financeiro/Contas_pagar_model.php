@@ -9,7 +9,7 @@ class Contas_pagar_model extends CI_Model {
     }
     
     public function select() {
-        $this->db->order_by('id_conta_pagar', 'DESC');
+        $this->db->order_by('data', 'ASC');
         return $this->db->get('contas_pagar')->result_array();
     }
     
