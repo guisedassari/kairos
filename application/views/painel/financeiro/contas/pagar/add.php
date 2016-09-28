@@ -6,9 +6,9 @@
 <div class="row">
     <div class="col-md-8 col-md-offset-2 col-xs-12">
         <div class="panel panel-default">
-            <div class="panel-heading">Conta a Receber</div>
+            <div class="panel-heading">Conta a Pagar</div>
             <div class="panel-body">
-                <form action="adicionar_conta_receber" method="post">
+                <form action="adicionar_conta_pagar" method="post">
                     <?php
                     $date = date('Y-m-d');
                     ?>
@@ -24,10 +24,15 @@
                         </div>
                     </div>
                     <div class="row">
+                        <div class="form-group col-lg-12">
+                            <input type="text" class="form-control" name="parcela" placeholder="Parcela">
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="col-lg-12">
-                            <select class="form-control" name="dizimo">
-                                <option>Sim</option>
-                                <option>Não</option>
+                            <select class="form-control" name="status">
+                                <option>Pendente</option>
+                                <option>Pago</option>
                             </select>
                         </div>
                     </div>

@@ -81,7 +81,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <?php echo anchor('contas_receber', ' Contas a Receber', array('class' => '')); ?>
                                     </li>
                                     <li>
-                                        <?php echo anchor('#', ' Contas a Pagar', array('class' => '')); ?>
+                                        <?php echo anchor('contas_pagar', ' Contas a Pagar', array('class' => '')); ?>
                                     </li>
                                 </ul>
                             </li>
