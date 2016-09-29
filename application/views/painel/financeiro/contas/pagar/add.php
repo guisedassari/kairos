@@ -12,7 +12,7 @@
                     <?php
                     $date = date('Y-m-d');
                     ?>
-                    <input type="date" class="hidden" name="data" placeholder="Nome" value="<?= $date;?>">
+                    <input type="date" class="hidden" name="created" placeholder="Nome" value="<?= $date;?>">
                     <div class="row">
                         <div class="form-group col-lg-12">
                             <input type="text" class="form-control" name="nome" placeholder="Nome">
@@ -28,11 +28,24 @@
                             <input type="text" class="form-control" name="parcela" placeholder="Parcela">
                         </div>
                     </div>
+                     <div class="row">
+                        <div class="form-group col-lg-12">
+                            <input type="date" class="form-control" name="data" placeholder="Data">
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-lg-12">
                             <select class="form-control" name="status">
                                 <option>Pendente</option>
-                                <option>Pago</option>
+                                <option>Concluido</option>
+                            </select>
+                        </div>
+                    </div>
+                     <div class="row">
+                        <div class="col-lg-12">
+                            <select class="form-control" name="forma_pagamento">
+                                <option>Dinheiro</option>
+                                <option>Cartão</option>
                             </select>
                         </div>
                     </div>
