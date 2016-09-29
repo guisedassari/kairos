@@ -37,8 +37,13 @@
                     <tbody>
                         <?php
                         $total_receber = 0;
+                        $dinheiro = 0;
                         foreach ($dados_receber as $value) :
+                            xdebbug($value);
                             $total_receber += (float) $value['valor'];
+                            if ($value['forma_recebimento'] == 'Dinheiro') {
+                                $dinheiro += (float) $value['valor'];
+                            }
                             ?>
                             <tr class="odd gradeX">
                                 <td><?= $value['nome']; ?></td>
@@ -55,7 +60,7 @@
                         <?php endforeach; ?>
                         <tr class="valor-total">
                             <td colspan="3">Valor Total</td>
-                            <td colspan="3" class="text-center">R$ <?= $total_receber; ?></td>
+                            <td colspan="3" class="text-center">R$ <?= $total_receber ."/".$dinheiro; ?></td>
                         </tr>
                     </tbody>
                 </table>
