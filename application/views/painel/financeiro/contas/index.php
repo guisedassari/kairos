@@ -44,7 +44,7 @@
                                 <td><?= $value['nome']; ?></td>
                                 <td class="valor2 text-justify">R$ <?= $value['valor']; ?></td>
                                 <td><?= inverteData($value['data']); ?></td>
-                                <td><?= $value['obs']; ?></td>
+                                <td><?= substr($value['obs'], 0,20); ?></td>
                                 <td class="text-center"><?= $value['dizimo']; ?></td>
                                 <td class="text-center">
                                     <i class="fa fa-pencil-square" aria-hidden="true"></i>
@@ -102,7 +102,7 @@
                                 <td class="text-center"><?= $value['parcela']; ?></td>
                                 <td><?= inverteData($value['data']); ?></td>
                                 <td><?= $value['status']; ?></td>
-                                <td><?= $value['obs']; ?></td>
+                                <td><?= substr($value['obs'], 0,20); ?></td>
                                 <td class="text-center">
                                     <i class="fa fa-pencil-square" aria-hidden="true"></i>
                                     &nbsp;&nbsp;

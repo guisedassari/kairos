@@ -13,36 +13,36 @@
                     $date = date('Y-m-d');
                     ?>
                     <input type="date" class="hidden" name="created" placeholder="Nome" value="<?= $date;?>">
-                    <div class="row">
-                        <div class="form-group col-lg-12">
+                    <div class="">
+                        <div class="form-group col-lg-6">
                             <input type="text" class="form-control" name="nome" placeholder="Nome">
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="form-group col-lg-12">
+                    <div class="">
+                        <div class="form-group col-lg-3">
                             <input type="text" class="form-control" name="valor" placeholder="Valor">
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="form-group col-lg-12">
+                    <div class="">
+                        <div class="form-group col-lg-3">
                             <input type="text" class="form-control" name="parcela" placeholder="Parcela">
                         </div>
                     </div>
-                     <div class="row">
-                        <div class="form-group col-lg-12">
+                     <div class="">
+                        <div class="form-group col-lg-4">
                             <input type="date" class="form-control" name="data" placeholder="Data">
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-lg-12">
+                    <div class="">
+                        <div class="col-lg-4">
                             <select class="form-control" name="status">
                                 <option>Pendente</option>
                                 <option>Concluido</option>
                             </select>
                         </div>
                     </div>
-                     <div class="row">
-                        <div class="col-lg-12">
+                     <div class="">
+                        <div class="col-lg-4">
                             <select class="form-control" name="forma_pagamento">
                                 <option>Dinheiro</option>
                                 <option>Cartão</option>
@@ -50,12 +50,12 @@
                         </div>
                     </div>
                     <br>
-                    <div class="row">
+                    <div class="">
                         <div class="form-group col-lg-12">
                             <textarea name="obs" class="form-control" rows="3"></textarea>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="">
                         <div class="col-lg-12 text-right">
                             <button type="submit" class="btn btn-primary">Salvar</button>
                         </div>

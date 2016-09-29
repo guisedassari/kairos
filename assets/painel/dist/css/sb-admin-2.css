@@ -472,3 +472,6 @@ table.dataTable thead .sorting:after {
   color: #00BCC9;
   font-weight: 900!important;
 }
+.form-control {
+  background-color: #DDDDDD!important;
+}
