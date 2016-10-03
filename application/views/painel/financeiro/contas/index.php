@@ -50,7 +50,7 @@ if (($this->session->flashdata('success'))) {
                             ?>
                             <tr class="odd gradeX">
                                 <td><?= $value['nome']; ?></td>
-                                <td class="valor2 text-justify">R$ <?= $value['valor']; ?></td>
+                                <td class="valor2 text-justify">R$ <?= real($value['valor']); ?></td>
                                 <td><?= inverteData($value['data']); ?></td>
                                 <td><?= substr($value['obs'], 0, 20); ?></td>
                                 <td class="text-center"><?= $value['dizimo']; ?></td>
@@ -63,7 +63,7 @@ if (($this->session->flashdata('success'))) {
                         <?php endforeach; ?>
                         <tr class="valor-total">
                             <td colspan="3">Valor Total</td>
-                            <td colspan="3" class="text-center">R$ <?= $total_receber; ?></td>
+                            <td colspan="3" class="text-center">R$ <?= real($total_receber); ?></td>
                         </tr>
                     </tbody>
                 </table>
@@ -113,7 +113,7 @@ if (($this->session->flashdata('success'))) {
                             ?>
                             <tr class="odd gradeX">
                                 <td><?= $value['nome']; ?></td>
-                                <td class="valor text-justify">R$ <?= $value['valor']; ?></td>
+                                <td class="valor text-justify">R$ <?= real($value['valor']); ?></td>
                                 <td class="text-center"><?= $value['parcela']; ?></td>
                                 <td><?= inverteData($value['data']); ?></td>
                                 <td><?= $value['status']; ?></td>
@@ -127,7 +127,7 @@ if (($this->session->flashdata('success'))) {
                         <?php endforeach; ?>
                         <tr class="valor-total">
                             <td colspan="3">Valor Total</td>
-                            <td colspan="4" class="text-center">R$ <?= $total_pagar; ?></td>
+                            <td colspan="4" class="text-center">R$ <?= real($total_pagar); ?></td>
                         </tr>
                     </tbody>
                 </table>
@@ -141,7 +141,7 @@ if (($this->session->flashdata('success'))) {
             </div>
             <div class="panel-body">
                 <?php $total = $total_receber - $total_pagar ?>
-                <h3 class="valor-disponivel text-center"><?= $total; ?></h3>
+                <h3 class="valor-disponivel text-center">R$ <?= real($total); ?></h3>
             </div>
         </div>
     </div>
@@ -153,7 +153,7 @@ if (($this->session->flashdata('success'))) {
             </div>
             <div class="panel-body">
                 <?php $dinheiro = $dinheiro - $pagar_dinheiro ?>
-                <h3 class="valor-disponivel text-center"><?= $dinheiro; ?></h3>
+                <h3 class="valor-disponivel text-center">R$ <?= real($dinheiro); ?></h3>
             </div>
         </div>
     </div>
@@ -165,7 +165,7 @@ if (($this->session->flashdata('success'))) {
             </div>
             <div class="panel-body">
                 <?php $conta = $conta - $pagar_cartao ?>
-                <h3 class="valor-disponivel text-center"><?= $conta; ?></h3>
+                <h3 class="valor-disponivel text-center">R$ <?= real($conta); ?></h3>
             </div>
         </div>
     </div>

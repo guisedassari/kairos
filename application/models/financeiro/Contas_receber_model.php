@@ -9,9 +9,9 @@ class Contas_receber_model extends CI_Model {
     }
 
     public function select() {
+        $date = date_format(date_create(), 'Y-m');
         $this->db->order_by('data', 'ASC');
-        $this->db->where('data <=', '2016-10-31');
-        $this->db->where('data >=', '2016-10-01');
+        $this->db->like('data', $date);
         $this->db->from('contas_receber');
         return $this->db->get()->result_array();
     }
