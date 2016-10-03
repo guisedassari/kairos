@@ -4,12 +4,12 @@
     </div>
 </div>
 <?php
-    if (($this->session->flashdata('success'))) {
-        echo '<div class="alert alert-success">' . $this->session->flashdata('success') . '</div>';
-    } elseif ($this->session->flashdata('danger')) {
-        echo '<div class="alert alert-danger">' . $this->session->flashdata('danger') . '</div>';
-    }
-    ?>
+if (($this->session->flashdata('success'))) {
+    echo '<div class="alert alert-success">' . $this->session->flashdata('success') . '</div>';
+} elseif ($this->session->flashdata('danger')) {
+    echo '<div class="alert alert-danger">' . $this->session->flashdata('danger') . '</div>';
+}
+?>
 <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-default">
@@ -38,18 +38,21 @@
                         <?php
                         $total_receber = 0;
                         $dinheiro = 0;
+                        $conta = 0;
                         foreach ($dados_receber as $value) :
-                            xdebbug($value);
+
                             $total_receber += (float) $value['valor'];
                             if ($value['forma_recebimento'] == 'Dinheiro') {
                                 $dinheiro += (float) $value['valor'];
+                            } elseif ($value['forma_recebimento'] == 'Conta') {
+                                $conta += (float) $value['valor'];
                             }
                             ?>
                             <tr class="odd gradeX">
                                 <td><?= $value['nome']; ?></td>
                                 <td class="valor2 text-justify">R$ <?= $value['valor']; ?></td>
                                 <td><?= inverteData($value['data']); ?></td>
-                                <td><?= substr($value['obs'], 0,20); ?></td>
+                                <td><?= substr($value['obs'], 0, 20); ?></td>
                                 <td class="text-center"><?= $value['dizimo']; ?></td>
                                 <td class="text-center">
                                     <i class="fa fa-pencil-square" aria-hidden="true"></i>
@@ -60,7 +63,7 @@
                         <?php endforeach; ?>
                         <tr class="valor-total">
                             <td colspan="3">Valor Total</td>
-                            <td colspan="3" class="text-center">R$ <?= $total_receber ."/".$dinheiro; ?></td>
+                            <td colspan="3" class="text-center">R$ <?= $total_receber; ?></td>
                         </tr>
                     </tbody>
                 </table>
@@ -98,8 +101,15 @@
                     <tbody>
                         <?php
                         $total_pagar = 0;
+                        $pagar_dinheiro = 0;
+                        $pagar_cartao = 0;
                         foreach ($dados_pagar as $value) :
                             $total_pagar += (float) $value['valor'];
+                            if ($value['forma_pagamento'] == 'Dinheiro') {
+                                $pagar_dinheiro += (float) $value['valor'];
+                            } elseif ($value['forma_pagamento'] == 'Conta') {
+                                $pagar_cartao += (float) $value['valor'];
+                            }
                             ?>
                             <tr class="odd gradeX">
                                 <td><?= $value['nome']; ?></td>
@@ -107,7 +117,7 @@
                                 <td class="text-center"><?= $value['parcela']; ?></td>
                                 <td><?= inverteData($value['data']); ?></td>
                                 <td><?= $value['status']; ?></td>
-                                <td><?= substr($value['obs'], 0,20); ?></td>
+                                <td><?= substr($value['obs'], 0, 20); ?></td>
                                 <td class="text-center">
                                     <i class="fa fa-pencil-square" aria-hidden="true"></i>
                                     &nbsp;&nbsp;
@@ -124,14 +134,38 @@
             </div>
         </div>
     </div>
-    <div class="col-lg-12 text-center">
+    <div class="col-lg-4 text-center">
         <div class="panel panel-info">
             <div class="panel-heading">
-                Disponivel
+                Total Disponivel
             </div>
             <div class="panel-body">
                 <?php $total = $total_receber - $total_pagar ?>
                 <h3 class="valor-disponivel text-center"><?= $total; ?></h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 text-center">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                Dinheiro
+            </div>
+            <div class="panel-body">
+                <?php $dinheiro = $dinheiro - $pagar_dinheiro ?>
+                <h3 class="valor-disponivel text-center"><?= $dinheiro; ?></h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 text-center">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                Conta Caixa
+            </div>
+            <div class="panel-body">
+                <?php $conta = $conta - $pagar_cartao ?>
+                <h3 class="valor-disponivel text-center"><?= $conta; ?></h3>
             </div>
         </div>
     </div>

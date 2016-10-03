@@ -10,6 +10,8 @@ class Contas_pagar_model extends CI_Model {
     
     public function select() {
         $this->db->order_by('data', 'ASC');
+        $this->db->like('data', '10');
+        $this->db->like('data', '10');
         return $this->db->get('contas_pagar')->result_array();
     }
     
