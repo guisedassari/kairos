@@ -1,6 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
+<?php
+if (!($_SESSION['usuario_logado'])) {
+    $this->session->set_flashdata("danger", "Você deve se logar primeiro");
+    redirect('/');
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -77,12 +83,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <li>
                                 <a href="#"><i class="fa fa-usd fa-fw"></i> Financeiro<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
-                                    <li>
-                                        <?php echo anchor('contas_receber', ' Contas a Receber', array('class' => '')); ?>
-                                    </li>
-                                    <li>
-                                        <?php echo anchor('contas_pagar', ' Contas a Pagar', array('class' => '')); ?>
-                                    </li>
                                      <li>
                                         <?php echo anchor('contas', ' Contas', array('class' => '')); ?>
                                     </li>
