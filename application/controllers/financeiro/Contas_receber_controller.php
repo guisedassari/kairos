@@ -29,8 +29,19 @@ class Contas_receber_controller extends CI_Controller {
         $this->load->templete('painel/financeiro/contas/receber/add');
     }
 
-    public function edit() {
-        
+    public function edit($id) {
+        $dados = $this->input->post();
+        if ($dados != null) {
+            $this->receber_model->update($dados);
+            $this->session->set_flashdata("success", "Conta atualizada com sucesso");
+            redirect('contas');
+        }
+        if ($id != null) {
+            $dados = $this->receber_model->select_id($id);
+            $this->load->templete("painel/financeiro/contas/receber/edit", compact("dados"));
+        } else {
+            redirect('contas');
+        }
     }
 
     public function delete($id) {

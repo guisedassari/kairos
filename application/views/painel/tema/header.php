@@ -63,10 +63,7 @@ if (!($_SESSION['usuario_logado'])) {
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="login.html">
-                                    <i class="fa fa-sign-out fa-fw"></i> 
-                                    Logout
-                                </a>
+                                <?php echo anchor('logout', '<i class="fa fa-sign-out fa-fw"></i> Logout', array('class' => '')); ?>
                             </li>
                         </ul>
                     </li>
@@ -83,7 +80,7 @@ if (!($_SESSION['usuario_logado'])) {
                             <li>
                                 <a href="#"><i class="fa fa-usd fa-fw"></i> Financeiro<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
-                                     <li>
+                                    <li>
                                         <?php echo anchor('contas', ' Contas', array('class' => '')); ?>
                                     </li>
                                 </ul>

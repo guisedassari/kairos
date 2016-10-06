@@ -6,4 +6,6 @@ function real($valor){
     return $valor;
 }
 
-// 1 234,56
+function calcDizimo($valor) {
+	return ( 10 / 100 ) * $valor;
+}

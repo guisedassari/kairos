@@ -16,10 +16,14 @@ class Contas_receber_model extends CI_Model {
         return $this->db->get()->result_array();
     }
 
-    public function select_date() {
-        $this->db->order_by('data', 'ASC');
+    public function select_id($id) {
+        return $this->db->get_where('contas_receber', array('id_conta_receber' => $id))->row();
+    }
 
-        return $this->db->get('contas_receber', array('data >' => '2016-009-30'))->result_array();
+    public function update($dados = null) {
+        if ($dados != null) {
+            return $this->db->update('contas_receber', $dados, array('id_conta_receber' => $dados['id_conta_receber']));
+        }
     }
 
     public function save($dados = null) {

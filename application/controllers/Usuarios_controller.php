@@ -29,7 +29,7 @@ class Usuarios_controller extends CI_Controller {
 
     public function logout() {
         unset($_SESSION['usuario_logado']);
-        redirect('login');
+        redirect('');
     }
 
 }
