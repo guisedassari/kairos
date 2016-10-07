@@ -1,6 +1,13 @@
 <div class="row">
     <div class="col-lg-12">
         <h1 class="page-header">Sistema Kairos</h1>
+        <form action="contas"class="form-inline" method="post">
+            <div class="form-group">
+                <input type="date" name="data" class="form-control" placeholder="Data">
+            </div>
+            <button type="submit" class="btn btn-primary">Filtrar</button>
+        </form>
+        <br>
     </div>
 </div>
 <?php
@@ -37,23 +44,21 @@ if (($this->session->flashdata('success'))) {
                         </thead>
                         <tbody>
                             <?php
-                            
                             $total_receber = 0;
                             $dinheiro = 0;
                             $conta = 0;
                             $dizimo = 0;
                             foreach ($dados_receber as $value) :
-                                
+
                                 $total_receber += (float) $value['valor'];
                                 if ($value['forma_recebimento'] == 'Dinheiro') {
                                     $dinheiro += (float) $value['valor'];
                                 } elseif ($value['forma_recebimento'] == 'Conta') {
                                     $conta += (float) $value['valor'];
-                                } 
+                                }
                                 if ($value['dizimo'] == 'Sim') {
                                     $dizimo += (float) $value['valor'];
                                 }
-                                
                                 ?>
                                 <tr class="odd gradeX">
                                     <td><?= $value['nome']; ?></td>
@@ -62,7 +67,7 @@ if (($this->session->flashdata('success'))) {
                                     <td><?= substr($value['obs'], 0, 20); ?></td>
                                     <td class="text-center"><?= $value['dizimo']; ?></td>
                                     <td class="text-center">
-                                        
+
                                         <?= anchor("atualizar_conta_receber/{$value['id_conta_receber']}", '<i class="fa fa-pencil-square" aria-hidden="true"></i>', ['class' => 'text-success']); ?>
                                         &nbsp;&nbsp;
                                         <?= anchor("deletar_conta_receber/{$value['id_conta_receber']}", '<i class="fa fa-trash" aria-hidden="true"></i>', ['class' => 'text-danger']); ?>
@@ -180,11 +185,11 @@ if (($this->session->flashdata('success'))) {
             </div>
         </div>
     </div>
-    
-     <div class="col-lg-3 text-center">
+
+    <div class="col-lg-3 text-center">
         <div class="panel panel-info">
             <div class="panel-heading">
-               Dizimo
+                Dizimo
             </div>
             <div class="panel-body">
                 <?php $dizimo = calcDizimo($dizimo) ?>

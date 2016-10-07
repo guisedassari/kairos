@@ -12,8 +12,10 @@ class Contas_controller extends CI_Controller {
     }
 
     public function index() {
-        $dados_pagar = $this->pagar_model->select();
-        $dados_receber = $this->receber_model->select();
+        $data = $this->input->post();
+        //debbug($data);
+        $dados_pagar = $this->pagar_model->select($data);
+        $dados_receber = $this->receber_model->select($data);
         $this->load->templete('painel/financeiro/contas/index', compact('dados_pagar', 'dados_receber'));
     }
 }

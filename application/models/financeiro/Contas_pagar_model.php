@@ -8,8 +8,14 @@ class Contas_pagar_model extends CI_Model {
         parent::__construct();
     }
     
-    public function select() {
-        $date = date_format(date_create(),'Y-m');
+    public function select($data) {
+        //debbug(date_create());
+        if ($data != null) {
+            $date = date_format('2016-10-07 17:01:24.000000','Y-m');
+        }  else {
+            $date = date_format(date_create(),'Y-m');
+        }
+        debbug($date);
         $this->db->order_by('data', 'ASC');
         $this->db->like('data', $date);
         return $this->db->get('contas_pagar')->result_array();
