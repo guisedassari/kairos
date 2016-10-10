@@ -58,6 +58,6 @@ $route['deletar_conta_receber/(:any)'] = '/financeiro/contas_receber_controller/
 $route['deletar_conta_pagar/(:any)'] = '/financeiro/contas_pagar_controller/delete/$1';
 $route['atualizar_conta_receber/(:any)'] = '/financeiro/contas_receber_controller/edit/$1';
 $route['contas'] = '/financeiro/contas_controller';
-$route['logout'] = 'usuarios_controller/logout';
+$route['logout'] = '/usuarios_controller/logout';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

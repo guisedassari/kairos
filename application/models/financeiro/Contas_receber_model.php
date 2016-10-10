@@ -8,8 +8,13 @@ class Contas_receber_model extends CI_Model {
         parent::__construct();
     }
 
-    public function select() {
-        $date = date_format(date_create(), 'Y-m');
+    public function select($data) {
+        if ($data != null) {
+            $data = date_create($data['data']);
+            $date = date_format($data, "Y-m");
+        } else {
+            $date = date_format(date_create(), 'Y-m');
+        }
         $this->db->order_by('data', 'ASC');
         $this->db->like('data', $date);
         $this->db->from('contas_receber');

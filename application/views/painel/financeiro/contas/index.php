@@ -3,7 +3,7 @@
         <h1 class="page-header">Sistema Kairos</h1>
         <form action="contas"class="form-inline" method="post">
             <div class="form-group">
-                <input type="date" name="data" class="form-control" placeholder="Data">
+                <input type="Month" name="data" class="form-control" placeholder="Data">
             </div>
             <button type="submit" class="btn btn-primary">Filtrar</button>
         </form>
