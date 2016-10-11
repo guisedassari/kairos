@@ -134,7 +134,7 @@ if (($this->session->flashdata('success'))) {
                                     <td><?= $value['status']; ?></td>
                                     <td><?= substr($value['obs'], 0, 20); ?></td>
                                     <td class="text-center">
-                                        <i class="fa fa-pencil-square" aria-hidden="true"></i>
+                                        <?= anchor("atualizar_conta_pagar/{$value['id_conta_pagar']}", '<i class="fa fa-pencil-square" aria-hidden="true"></i>', ['class' => 'text-success']); ?>
                                         &nbsp;&nbsp;
                                         <?= anchor("deletar_conta_pagar/{$value['id_conta_pagar']}", '<i class="fa fa-trash" aria-hidden="true"></i>', ['class' => 'text-danger']); ?>
                                     </td>

@@ -29,8 +29,19 @@ class Contas_pagar_controller extends CI_Controller {
         $this->load->templete('painel/financeiro/contas/pagar/add');
     }
 
-    public function edit() {
-        
+    public function edit($id) {
+        $dados = $this->input->post();
+        if ($dados != null) {
+            $this->pagar_model->update($dados);
+            $this->session->set_flashdata("success", "Conta atualizada com sucesso");
+            redirect('contas');
+        }
+        if ($id != null) {
+            $dados = $this->pagar_model->select_id($id);
+            $this->load->templete("painel/financeiro/contas/pagar/edit", compact("dados"));
+        } else {
+            redirect('contas');
+        }
     }
 
     public function delete($id) {

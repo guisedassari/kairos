@@ -29,7 +29,17 @@ class Contas_pagar_model extends CI_Model {
     public function drop($id = null) {
         return $this->db->delete('contas_pagar', array('id_conta_pagar' => $id));
     }
+    
+    public function select_id($id) {
+        return $this->db->get_where('contas_pagar', array('id_conta_pagar' => $id))->row();
+    }
 
+    public function update($dados = null) {
+        if ($dados != null) {
+            return $this->db->update('contas_pagar', $dados, array('id_conta_pagar' => $dados['id_conta_pagar']));
+        }
+    }
+    
     public function teste() {
         $this->date = date_create();
         debbug($this->date);
