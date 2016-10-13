@@ -37,16 +37,16 @@
                     <div class="">
                         <div class="col-lg-4">
                             <select class="form-control" name="status">
-                                <option>Pendente</option>
-                                <option>Concluido</option>
+                                <option <?= ($dados->status == 'Pendente') ? ('selected') : ('');?>>Pendente</option>
+                                <option <?= ($dados->status == 'Concluido') ? ('selected') : ('');?>>Concluido</option>
                             </select>
                         </div>
                     </div>
                      <div class="">
                         <div class="col-lg-4">
                             <select class="form-control" name="forma_pagamento">
-                                <option>Dinheiro</option>
-                                <option>Cartão</option>
+                                <option <?= ($dados->forma_pagamento == 'Dinheiro') ? ('selected') : ('');?>>Dinheiro</option>
+                                <option <?= ($dados->forma_pagamento == 'Cartão') ? ('selected') : ('');?>>Cartão</option>
                             </select>
                         </div>
                     </div>

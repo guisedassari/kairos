@@ -3,7 +3,6 @@
         <h1 class="page-header">Atualizar uma conta</h1>
     </div>
 </div>
-
 <div class="row">
     <div class="col-md-8 col-md-offset-2 col-xs-12">
         <div class="panel panel-default">
@@ -32,8 +31,8 @@
                         <div class="col-lg-4">
                             <select class="form-control" name="dizimo">
                                 <option>Dizimo</option>
-                                <option>Sim</option>
-                                <option>Não</option>
+                                <option <?= ($dados->dizimo == 'Sim') ? ('selected') : ('');?> >Sim</option>
+                                <option <?= ($dados->dizimo == 'Não') ? ('selected') : ('');?>>Não</option>
                             </select>
                         </div>
                     </div>
@@ -41,9 +40,9 @@
                         <div class="col-lg-4">
                             <select class="form-control" name="forma_recebimento">
                                 <option>Forma de Pagamento</option>
-                                <option>Dinheiro</option>
-                                <option>Conta</option>
-                                <option>Cheque</option>
+                                <option <?= ($dados->forma_recebimento == 'Dinheiro') ? ('selected') : ('');?>>Dinheiro</option>
+                                <option <?= ($dados->forma_recebimento == 'Conta') ? ('selected') : ('');?>>Conta</option>
+                                <option <?= ($dados->forma_recebimento == 'Cheque') ? ('selected') : ('');?>>Cheque</option>
                             </select>
                         </div>
                     </div>
