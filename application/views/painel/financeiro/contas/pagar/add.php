@@ -45,7 +45,10 @@
                         <div class="col-lg-4">
                             <select class="form-control" name="forma_pagamento">
                                 <option>Dinheiro</option>
-                                <option>Cartão</option>
+                                <option>Cartão Nubank</option>
+                                <option>Cartão Caixa</option>
+                                <option>Cartão Itau</option>
+                                <option>Cheque</option>
                             </select>
                         </div>
                     </div>

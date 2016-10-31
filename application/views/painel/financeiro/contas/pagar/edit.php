@@ -47,6 +47,10 @@
                             <select class="form-control" name="forma_pagamento">
                                 <option <?= ($dados->forma_pagamento == 'Dinheiro') ? ('selected') : ('');?>>Dinheiro</option>
                                 <option <?= ($dados->forma_pagamento == 'Cartão') ? ('selected') : ('');?>>Cartão</option>
+                                <option <?= ($dados->forma_pagamento == 'Cartão Nubank') ? ('selected') : ('');?>>Cartão Nubank</option>
+                                <option <?= ($dados->forma_pagamento == 'Cartão Caixa') ? ('selected') : ('');?>>Cartão Caixa</option>
+                                <option <?= ($dados->forma_pagamento == 'Cartão Itau') ? ('selected') : ('');?>>Cartão Itau</option>
+                                <option <?= ($dados->forma_pagamento == 'Cheque') ? ('selected') : ('');?>>Cheque</option>
                             </select>
                         </div>
                     </div>
