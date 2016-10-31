@@ -17,7 +17,10 @@ class Contas_pagar_model extends CI_Model {
         }
         $this->db->order_by('data', 'ASC');
         $this->db->like('data', $date);
-        return $this->db->get('contas_pagar')->result_array();
+        //$this->db->where('data =', $date);
+        $this->db->or_where('status !=', 'Concluido');
+        return $this->db->get_where('contas_pagar')->result_array();
+        //$sql = "select * from contas_pagar where (date_format(data, '%Y-%m') = '$date') or (status != 'Concluido')";
     }
 
     public function save($dados = null) {
@@ -29,7 +32,7 @@ class Contas_pagar_model extends CI_Model {
     public function drop($id = null) {
         return $this->db->delete('contas_pagar', array('id_conta_pagar' => $id));
     }
-    
+
     public function select_id($id) {
         return $this->db->get_where('contas_pagar', array('id_conta_pagar' => $id))->row();
     }
@@ -39,7 +42,7 @@ class Contas_pagar_model extends CI_Model {
             return $this->db->update('contas_pagar', $dados, array('id_conta_pagar' => $dados['id_conta_pagar']));
         }
     }
-    
+
     public function teste() {
         $this->date = date_create();
         debbug($this->date);

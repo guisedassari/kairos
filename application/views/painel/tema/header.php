@@ -11,7 +11,7 @@ if (!($_SESSION['usuario_logado'])) {
 <html lang="pt-br">
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!--        <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Kairos</title>
         <link rel="icon" href="<?= base_url("assets/painel/img/kairos.ico")?>" type="image/x-icon" />

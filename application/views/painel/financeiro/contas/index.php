@@ -37,8 +37,9 @@ if (($this->session->flashdata('success'))) {
                                 <th>Nome</th>
                                 <th>Valor</th>
                                 <th>Data</th>
-                                <th>OBS</th>
                                 <th>Dizimo</th>
+                                <th>Forma de recebimento</th>
+                                <th>OBS</th>
                                 <th class="text-center">Ações</th>
                             </tr>
                         </thead>
@@ -64,8 +65,9 @@ if (($this->session->flashdata('success'))) {
                                     <td><?= $value['nome']; ?></td>
                                     <td class="valor2 text-justify">R$ <?= real($value['valor']); ?></td>
                                     <td><?= inverteData($value['data']); ?></td>
-                                    <td><?= substr($value['obs'], 0, 20); ?></td>
                                     <td class="text-center"><?= $value['dizimo']; ?></td>
+                                    <td class=""><?= $value['forma_recebimento']; ?></td>
+                                    <td><?= substr($value['obs'], 0, 20); ?></td>
                                     <td class="text-center">
 
                                         <?= anchor("atualizar_conta_receber/{$value['id_conta_receber']}", '<i class="fa fa-pencil-square" aria-hidden="true"></i>', ['class' => 'text-success']); ?>
@@ -76,7 +78,7 @@ if (($this->session->flashdata('success'))) {
                             <?php endforeach; ?>
                             <tr class="valor-total">
                                 <td colspan="3">Valor Total</td>
-                                <td colspan="3" class="text-center">R$ <?= real($total_receber); ?></td>
+                                <td colspan="4" class="text-center">R$ <?= real($total_receber); ?></td>
                             </tr>
                         </tbody>
                     </table>
@@ -109,6 +111,7 @@ if (($this->session->flashdata('success'))) {
                                 <th>Parcela</th>
                                 <th>Data</th>
                                 <th>Status</th>
+                                <th>Forma de pagamento</th>
                                 <th>OBS</th>
                                 <th class="text-center">Ações</th>
                             </tr>
@@ -117,13 +120,18 @@ if (($this->session->flashdata('success'))) {
                             <?php
                             $total_pagar = 0;
                             $pagar_dinheiro = 0;
-                            $pagar_cartao = 0;
+                            $pagar_cartao_nubank = 0;
+                            $pagar_cartao_caixa = 0;
                             foreach ($dados_pagar as $value) :
-                                $total_pagar += (float) $value['valor'];
+                                if ($value['status'] == 'Concluido') {
+                                    $total_pagar += (float) $value['valor'];
+                                }
                                 if ($value['forma_pagamento'] == 'Dinheiro') {
                                     $pagar_dinheiro += (float) $value['valor'];
-                                } elseif ($value['forma_pagamento'] == 'Cartão') {
-                                    $pagar_cartao += (float) $value['valor'];
+                                } elseif ($value['forma_pagamento'] == 'Cartão Nubank') {
+                                    $pagar_cartao_nubank += (float) $value['valor'];
+                                } elseif ($value['forma_pagamento'] == 'Cartão Caixa') {
+                                    $pagar_cartao_caixa += (float) $value['valor'];
                                 }
                                 ?>
                                 <tr class="odd gradeX">
@@ -132,6 +140,7 @@ if (($this->session->flashdata('success'))) {
                                     <td class="text-center"><?= $value['parcela']; ?></td>
                                     <td><?= inverteData($value['data']); ?></td>
                                     <td><?= $value['status']; ?></td>
+                                    <td><?= $value['forma_pagamento']; ?></td>
                                     <td><?= substr($value['obs'], 0, 20); ?></td>
                                     <td class="text-center">
                                         <?= anchor("atualizar_conta_pagar/{$value['id_conta_pagar']}", '<i class="fa fa-pencil-square" aria-hidden="true"></i>', ['class' => 'text-success']); ?>
@@ -142,7 +151,7 @@ if (($this->session->flashdata('success'))) {
                             <?php endforeach; ?>
                             <tr class="valor-total">
                                 <td colspan="3">Valor Total</td>
-                                <td colspan="4" class="text-center">R$ <?= real($total_pagar); ?></td>
+                                <td colspan="5" class="text-center">R$ <?= real($total_pagar); ?></td>
                             </tr>
                         </tbody>
                     </table>
@@ -162,26 +171,25 @@ if (($this->session->flashdata('success'))) {
         </div>
     </div>
 
-    <div class="col-lg-3 text-center">
+<!--    <div class="col-lg-3 text-center">
         <div class="panel panel-info">
             <div class="panel-heading">
                 Dinheiro
             </div>
             <div class="panel-body">
-                <?php $dinheiro = $dinheiro - $pagar_dinheiro ?>
+                <?php //$dinheiro = $dinheiro - $pagar_dinheiro ?>
                 <h3 class="valor-disponivel text-center">R$ <?= real($dinheiro); ?></h3>
             </div>
         </div>
-    </div>
+    </div>-->
 
     <div class="col-lg-3 text-center">
-        <div class="panel panel-info">
+        <div class="panel panel-nubank">
             <div class="panel-heading">
-                Conta Caixa
+                NuBank
             </div>
             <div class="panel-body">
-                <?php $conta = $conta - $pagar_cartao ?>
-                <h3 class="valor-disponivel text-center">R$ <?= real($conta); ?></h3>
+                <h3 class="valor-disponivel text-center">R$ <?= real($pagar_cartao_nubank); ?></h3>
             </div>
         </div>
     </div>
