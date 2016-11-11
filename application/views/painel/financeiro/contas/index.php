@@ -19,7 +19,7 @@ if (($this->session->flashdata('success'))) {
 ?>
 <div class="row">
     <div class="col-lg-12">
-        <div class="panel panel-default">
+        <div class="panel panel-success">
             <div class="panel-heading">
                 <h4>Contas a receber</h4>
             </div>
@@ -31,7 +31,49 @@ if (($this->session->flashdata('success'))) {
                 </div>
                 <br>
                 <div style="overflow-x:auto;">
-                    <table width="100%" class="table table-striped table-bordered table-hover" id="">
+                    <?php
+                    $total_receber = 0;
+                    $dinheiro = 0;
+                    $conta = 0;
+                    $dizimo = 0;
+                    foreach ($dados_receber as $value) :
+                        $total_receber += (float) $value['valor'];
+                        if ($value['forma_recebimento'] == 'Dinheiro') {
+                            $dinheiro += (float) $value['valor'];
+                        } elseif ($value['forma_recebimento'] == 'Conta') {
+                            $conta += (float) $value['valor'];
+                        }
+                        if ($value['dizimo'] == 'Sim') {
+                            $dizimo += (float) $value['valor'];
+                        }
+                        ?>
+                        <div class="col-md-3 col-xs-12 hidden-md hidden-lg">
+                            <div class="panel panel-success">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <?= $value['nome']; ?>
+                                        </div>
+                                        <div class="col-md-6 text-right">
+                                            <?= anchor("atualizar_conta_receber/{$value['id_conta_receber']}", '<i class="fa fa-pencil-square" aria-hidden="true"></i>', ['class' => 'text-success']); ?>
+                                            &nbsp;|&nbsp;
+                                            <?= anchor("deletar_conta_receber/{$value['id_conta_receber']}", '<i class="fa fa-trash" aria-hidden="true"></i>', ['class' => 'text-danger']); ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <ul class="list-group">
+                                        <li class="">Data: <?= inverteData($value['data']); ?></li>
+                                        <li class="">Dizimo: <?= $value['dizimo']; ?></li>
+                                        <li class="">Recebimento: <?= $value['forma_recebimento']; ?></li>
+                                        <li class="">Msg: <?= substr($value['obs'], 0, 20); ?></li>
+                                        <li class="list-group-item valor2 text-justify">R$ <?= real($value['valor']); ?></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                    <table width="100%" class="table table-striped table-bordered table-hover hidden-xs hidden-sm" id="">
                         <thead>
                             <tr>
                                 <th>Nome</th>
@@ -50,7 +92,6 @@ if (($this->session->flashdata('success'))) {
                             $conta = 0;
                             $dizimo = 0;
                             foreach ($dados_receber as $value) :
-
                                 $total_receber += (float) $value['valor'];
                                 if ($value['forma_recebimento'] == 'Dinheiro') {
                                     $dinheiro += (float) $value['valor'];
@@ -88,10 +129,10 @@ if (($this->session->flashdata('success'))) {
     </div>
 </div>
 <br>
-<!--Contas a Pagar-->
+<!--Contas a Pagar-------------------------------------------------------------------------------------------------->
 <div class="row">
     <div class="col-lg-12">
-        <div class="panel panel-default">
+        <div class="panel panel-danger">
             <div class="panel-heading">
                 <h4>Contas a pagar</h4>
             </div>
@@ -103,7 +144,51 @@ if (($this->session->flashdata('success'))) {
                 </div>
                 <br>
                 <div style="overflow-x:auto;">
-                    <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                    <?php
+                    $total_pagar = 0;
+                    $pagar_dinheiro = 0;
+                    $pagar_cartao_nubank = 0;
+                    $pagar_cartao_caixa = 0;
+                    foreach ($dados_pagar as $value) :
+                        if ($value['status'] == 'Concluido') {
+                            $total_pagar += (float) $value['valor'];
+                        }
+                        if ($value['forma_pagamento'] == 'Dinheiro') {
+                            $pagar_dinheiro += (float) $value['valor'];
+                        } elseif ($value['forma_pagamento'] == 'Cartão Nubank') {
+                            $pagar_cartao_nubank += (float) $value['valor'];
+                        } elseif ($value['forma_pagamento'] == 'Cartão Caixa') {
+                            $pagar_cartao_caixa += (float) $value['valor'];
+                        }
+                        ?>
+                        <div class="col-md-3 col-xs-12 hidden-md hidden-lg">
+                            <div class="panel panel-danger">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <?= $value['nome']; ?>
+                                        </div>
+                                        <div class="col-md-6 text-right">
+                                            <?= anchor("atualizar_conta_pagar/{$value['id_conta_pagar']}", '<i class="fa fa-pencil-square" aria-hidden="true"></i>', ['class' => 'text-success']); ?>
+                                            &nbsp;&nbsp;|&nbsp;&nbsp;
+                                            <?= anchor("deletar_conta_pagar/{$value['id_conta_pagar']}", '<i class="fa fa-trash" aria-hidden="true"></i>', ['class' => 'text-danger']); ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <ul class="list-group">
+                                        <li class="">Data: <?= inverteData($value['data']); ?></li>
+                                        <li class="">Parcelas: <?= $value['parcela']; ?></li>
+                                        <li class="">Status: <?= $value['status']; ?></li>
+                                        <li class="">Pagamento: <?= $value['forma_pagamento']; ?></li>
+                                        <li class="">Msg: <?= substr($value['obs'], 0, 20); ?></li>
+                                        <li class="list-group-item valor2 text-justify">R$ <?= real($value['valor']); ?></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                    <table width="100%" class="table table-striped table-bordered table-hover hidden-xs hidden-sm" id="dataTables-example">
                         <thead>
                             <tr>
                                 <th>Nome</th>
@@ -170,19 +255,7 @@ if (($this->session->flashdata('success'))) {
             </div>
         </div>
     </div>
-
-<!--    <div class="col-lg-3 text-center">
-        <div class="panel panel-info">
-            <div class="panel-heading">
-                Dinheiro
-            </div>
-            <div class="panel-body">
-                <?php //$dinheiro = $dinheiro - $pagar_dinheiro ?>
-                <h3 class="valor-disponivel text-center">R$ <?= real($dinheiro); ?></h3>
-            </div>
-        </div>
-    </div>-->
-
+    
     <div class="col-lg-3 text-center">
         <div class="panel panel-nubank">
             <div class="panel-heading">
@@ -193,7 +266,6 @@ if (($this->session->flashdata('success'))) {
             </div>
         </div>
     </div>
-
     <div class="col-lg-3 text-center">
         <div class="panel panel-info">
             <div class="panel-heading">
@@ -206,4 +278,3 @@ if (($this->session->flashdata('success'))) {
         </div>
     </div>
 </div>
-

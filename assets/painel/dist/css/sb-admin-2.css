@@ -483,3 +483,6 @@ table.dataTable thead .sorting:after {
 .panel-nubank {
   border-color: #6E2B77;
 }
+.list-group li {
+  list-style-type: none;
+}
